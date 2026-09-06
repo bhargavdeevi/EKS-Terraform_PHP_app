@@ -18,12 +18,10 @@ spec:
           image: bhargavdeevi/phpapp:dbimage
           ports:
             - containerPort: 3306
-
           # secret integration
           envFrom:
             - secretRef:
                 name: bankapp-db-secret
-
           # Resource Quota
           resources:
             requests:
@@ -32,11 +30,9 @@ spec:
             limits:
               cpu: "200m"
               memory: "256Mi"
-
           volumeMounts:
             - name: mysql-data
-              mountPath: /usr/share/nginx/html/
-
+              mountPath: /var/lib/mysql
   volumeClaimTemplates:
     - metadata:
         name: mysql-data
