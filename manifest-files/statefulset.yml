@@ -18,13 +18,13 @@ spec:
           image: bhargavdeevi/phpapp:dbimage
           ports:
             - containerPort: 3306
-        
-        #secret integration
+
+          # secret integration
           envFrom:
             - secretRef:
-              name: bankapp-db-secret
-          
-        #Resource Quota
+                name: bankapp-db-secret
+
+          # Resource Quota
           resources:
             requests:
               cpu: "100m"
@@ -36,7 +36,7 @@ spec:
           volumeMounts:
             - name: pvc-1
               mountPath: /var/lib/mysql
-      
+
       volumeClaimTemplates:
         - metadata:
             name: pvc-1
