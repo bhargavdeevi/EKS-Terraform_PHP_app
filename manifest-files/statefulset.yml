@@ -34,12 +34,12 @@ spec:
               memory: "256Mi"
 
           volumeMounts:
-            - name: pvc-1
-              mountPath: /var/lib/mysql
+            - name: mysql-data
+              mountPath: /usr/share/nginx/html/
 
   volumeClaimTemplates:
     - metadata:
-        name: pvc-1
+        name: mysql-data
       spec:
         accessModes:
           - ReadWriteOnce
