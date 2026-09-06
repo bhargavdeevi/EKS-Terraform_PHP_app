@@ -17,13 +17,13 @@ spec:
           image: bhargavdeevi/phpapp:appimage
           ports:
             - containerPort: 80
-        
-        #configmap integration
+
+          # configmap integration
           envFrom:
             - configMapRef:
-              name: bankapp-config
-          
-        #Resource Quota
+                name: bankapp-config
+
+          # Resource Quota
           resources:
             requests:
               cpu: "100m"
@@ -31,19 +31,18 @@ spec:
             limits:
               cpu: "200m"
               memory: "256Mi"
-          
+
           livenessProbe:
             httpGet:
               path: /
               port: 80
             initialDelaySeconds: 30
             periodSeconds: 10
-          
+
           readinessProbe:
             httpGet:
               path: /
               port: 80
             initialDelaySeconds: 10
             periodSeconds: 5
-            
 
